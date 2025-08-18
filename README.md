@@ -1,4 +1,3 @@
-# Minesweeper Blazor
 # Minesweeper Game - Enterprise .NET Architecture Template
 
 A complete **Minesweeper game implementation** using .NET 9+ that demonstrates
@@ -7,14 +6,14 @@ enterprise-grade software architecture patterns including **Clean Architecture**
 foundation for students to explore modern .NET development practices and build
 innovative extensions.
 
-## ?? Project Overview
+## 🎯 Project Overview
 
 This is a **foundational template** designed for students to experiment with and
 extend in creative directions. The current implementation provides a solid architectural
 foundation with comprehensive business logic, while leaving room for innovative
 features and wild creative directions.
 
-### What's Implemented (Phase 1 Complete ?)
+### What's Implemented (Phase 1 Complete ✅)
 
 - **Clean Architecture** with strict dependency inversion
 - **Domain-Driven Design** with rich business models
@@ -38,7 +37,7 @@ This foundation is intentionally designed to spark creativity. I have built:
 - **Custom game modes** (time trials, collaborative solving, etc.)
 - **Integration with external APIs** (authentication providers, cloud storage)
 
-## ?? Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -71,7 +70,7 @@ This foundation is intentionally designed to spark creativity. I have built:
    # Run all tests
    dotnet test
    
-   # Or use VS Code tasks (Ctrl+Shift+P ? "Tasks: Run Task"):
+   # Or use VS Code tasks (Ctrl+Shift+P → "Tasks: Run Task"):
    # - test-unit: Run only unit tests
    # - test-integration: Run only integration tests  
    # - test-coverage: Run tests with coverage
@@ -100,24 +99,24 @@ This foundation is intentionally designed to spark creativity. I have built:
    - Try the interactive API explorer to test endpoints
    - **Note**: This is a backend-only implementation - no web frontend is included
 
-## ??? VS Code Development Workflow
+## 🛠️ VS Code Development Workflow
 
-This project includes optimized VS Code tasks for efficient development. Access them via **Ctrl+Shift+P ? "Tasks: Run Task"**:
+This project includes optimized VS Code tasks for efficient development. Access them via **Ctrl+Shift+P → "Tasks: Run Task"**:
 
-### ?? **Quick Development Tasks**
+### 🚀 **Quick Development Tasks**
 
 - **`run-api-with-swagger`** - Start API with HTTPS and Swagger UI (recommended for development)
 - **`run-watch`** - Start API with hot reload for continuous development
 - **`format`** - Format all code consistently
 
-### ?? **Testing Workflow**
+### 🧪 **Testing Workflow**
 
 - **`test-unit`** - Quick unit test feedback during development
 - **`test-integration`** - Full integration test validation
 - **`test-coverage`** - Analyze test coverage metrics
 - **`test-watch`** - Continuous testing during TDD
 
-### ??? **Database Management**
+### 🗄️ **Database Management**
 
 - **`ef-migrations-add`** - Add new EF Core migration (prompts for name)
 - **`ef-database-update`** - Apply pending migrations
@@ -126,7 +125,7 @@ This project includes optimized VS Code tasks for efficient development. Access 
 
 All tasks are pre-configured with the correct project paths and startup projects for your Clean Architecture setup.
 
-## ?? Architecture Documentation
+## 📚 Architecture Documentation
 
 ### Phase 1: Infrastructure Foundation
 
@@ -168,7 +167,7 @@ This plan includes:
 - Integration testing with TestContainers
 - Performance optimization techniques
 
-## ?? API Documentation
+## 🔧 API Documentation
 
 ### Viewing OpenAPI Documentation
 
@@ -286,9 +285,9 @@ Ensure your project files generate XML documentation:
 </PropertyGroup>
 ```
 
-## ?? Current Game Features
+## 🎮 Current Game Features
 
-### Core Minesweeper Logic (Complete Implementation ?)
+### Core Minesweeper Logic (Complete Implementation ✅)
 
 This project includes a **production-quality, feature-complete** implementation of all classic Minesweeper game mechanics:
 
@@ -297,13 +296,13 @@ This project includes a **production-quality, feature-complete** implementation 
 - **Safe First Click**: Mines are placed AFTER the first click, ensuring it's never a mine
 - **Random Mine Distribution**: Proper randomization algorithm for mine placement
 - **Adjacent Cell Protection**: First click and its 8 neighbors are guaranteed mine-free
-- **Configurable Difficulties**: Beginner (9�9, 10 mines), Intermediate (16�16, 40 mines), Expert (16�30, 99 mines), Custom sizes
+- **Configurable Difficulties**: Beginner (9×9, 10 mines), Intermediate (16×16, 40 mines), Expert (16×30, 99 mines), Custom sizes
 
 #### **Advanced Cell Operations**
 
-- **Cell Revealing**: Complete state management (Hidden ? Revealed)
-- **Flagging System**: Toggle flags on suspected mines (Hidden ? Flagged)
-- **Question Marks**: Optional questioning state for uncertain cells (Hidden ? Questioned)
+- **Cell Revealing**: Complete state management (Hidden → Revealed)
+- **Flagging System**: Toggle flags on suspected mines (Hidden ↔ Flagged)
+- **Question Marks**: Optional questioning state for uncertain cells (Hidden ↔ Questioned)
 - **Adjacent Mine Counting**: Accurate calculation and display of neighboring mines (1-8)
 
 #### **Intelligent Game Mechanics**
@@ -317,7 +316,7 @@ This project includes a **production-quality, feature-complete** implementation 
 
 #### **Game State Management**
 
-- **Multiple States**: NotStarted ? InProgress ? Won/Lost, with Paused state support
+- **Multiple States**: NotStarted → InProgress → Won/Lost, with Paused state support
 - **Pause/Resume**: Accurate time tracking with pause duration compensation
 - **Statistics Tracking**: Progress percentage, remaining mines, elapsed time, cells revealed
 - **Game Duration**: Precise timing with pause handling and completion timestamps
@@ -326,7 +325,7 @@ This project includes a **production-quality, feature-complete** implementation 
 
 - **Remaining Mine Counter**: Dynamically calculated (total mines - flags placed)
 - **Progress Tracking**: Real-time percentage of safe cells revealed
-- **Visual Representation**: Emoji support (?? mines, ?? flags, ? questions, ? hidden)
+- **Visual Representation**: Emoji support (💣 mines, 🚩 flags, ❓ questions, ■ hidden)
 - **Debug Information**: Board state visualization for development and testing
 
 ### Domain Logic (Fully Implemented)
@@ -353,7 +352,7 @@ This project includes a **production-quality, feature-complete** implementation 
 - **Swagger Documentation**: Interactive API exploration
 - **No Frontend**: Backend API only - frontend implementation left to students
 
-## ??? Architecture Patterns
+## 🛠️ Architecture Patterns
 
 ### Clean Architecture Layers
 
@@ -363,7 +362,7 @@ flowchart TB
         direction LR
         Controllers[Controllers]
         SignalR[SignalR Hubs]
-        WebApi["?? Minesweeper.WebApi"]
+        WebApi["🌐 Minesweeper.WebApi"]
     end
 
     subgraph "Application Layer"
@@ -371,21 +370,21 @@ flowchart TB
         Commands[Commands]
         Queries[Queries]
         DTOs[DTOs]
-        AppLayer["?? Minesweeper.Application"]
+        AppLayer["🎯 Minesweeper.Application"]
     end
 
     subgraph "Infrastructure Layer"
         direction LR
         EFCore[EF Core]
         Repositories[Repositories]
-        InfraLayer["?? Minesweeper.Infrastructure"]
+        InfraLayer["🔧 Minesweeper.Infrastructure"]
     end
 
     subgraph "Domain Layer"
         direction LR
         Entities[Entities]
         ValueObjects[Value Objects]
-        DomainLayer["??? Minesweeper.Domain"]
+        DomainLayer["🏗️ Minesweeper.Domain"]
     end
 
     %% Dependencies flow inward
@@ -421,11 +420,11 @@ flowchart TB
 - **Value Objects**: Strongly-typed domain values
 - **Result Pattern**: Railway-oriented programming for error handling
 
-## ?? Student Project Ideas
+## 🚀 Student Project Ideas
 
 This foundation supports countless creative directions. Here are some ideas to get you started:
 
-### ?? Beginner Extensions
+### 🎯 Beginner Extensions
 
 - **Frontend Development**: Build web, mobile, or desktop interfaces
 - **Custom Themes**: UI themes and visual customizations (requires frontend)
@@ -433,7 +432,7 @@ This foundation supports countless creative directions. Here are some ideas to g
 - **Game Variants**: Different board shapes or rule modifications
 - **Statistics Dashboard**: Advanced player analytics and charts
 
-### ?? Intermediate Projects
+### 🎯 Intermediate Projects
 
 - **Web Frontend**: React, Angular, Vue.js, or Blazor client applications
 - **Mobile Apps**: Xamarin, MAUI, React Native, or Flutter applications
@@ -442,21 +441,21 @@ This foundation supports countless creative directions. Here are some ideas to g
 - **Mobile API**: Dedicated endpoints for mobile applications
 - **Social Features**: Friend systems, leaderboards, achievements
 
-### ?? Advanced Challenges
+### 🎯 Advanced Challenges
 
 - **Machine Learning**: Pattern recognition for cheating detection
 - **Microservices**: Break apart into distributed services
 - **Event Sourcing**: Complete event-driven architecture
 - **Cloud Integration**: Azure/AWS deployment with scaling
 
-### ?? Creative Directions
+### 🎯 Creative Directions
 
 - **3D Minesweeper**: Three-dimensional gameplay mechanics
 - **Educational Mode**: Teaching probability and logical reasoning
 - **Tournament System**: Competitive events and rankings
 - **API Integrations**: Social media sharing, external authentication
 
-## ?? Testing
+## 🧪 Testing
 
 ### Running Tests
 
@@ -475,7 +474,7 @@ dotnet test tests/Minesweeper.IntegrationTests/
 dotnet test --collect:"XPlat Code Coverage"
 ```
 
-**VS Code Task Shortcuts** (Ctrl+Shift+P ? "Tasks: Run Task"):
+**VS Code Task Shortcuts** (Ctrl+Shift+P → "Tasks: Run Task"):
 
 - `test` - Run all tests
 - `test-unit` - Run only unit tests
@@ -510,11 +509,11 @@ public void YourNewFeature_WithValidInput_ShouldBehaveCorrectly()
 }
 ```
 
-## ?? Development Workflow
+## 🔧 Development Workflow
 
 ### VS Code Tasks
 
-The project includes predefined VS Code tasks (accessible via `Ctrl+Shift+P` ? "Tasks: Run Task"):
+The project includes predefined VS Code tasks (accessible via `Ctrl+Shift+P` → "Tasks: Run Task"):
 
 - **build**: Build the entire solution
 - **test**: Run all unit tests
@@ -527,7 +526,7 @@ The project includes predefined VS Code tasks (accessible via `Ctrl+Shift+P` ? "
 - **Development**: Uses SQLite database (`minesweeper_dev.db`)
 - **Production**: Configured for PostgreSQL (connection string in `appsettings.Production.json`)
 
-## ?? Performance Considerations
+## 📈 Performance Considerations
 
 The current implementation includes several performance optimizations:
 
@@ -536,21 +535,21 @@ The current implementation includes several performance optimizations:
 - **Connection Pooling**: Built-in EF Core connection management
 - **Caching**: Ready for implementation with dependency injection
 
-## ?? Security Features
+## 🔒 Security Features
 
 - **Input Validation**: Domain-level validation for all operations
 - **SQL Injection Prevention**: EF Core parameterized queries
 - **Player-Scoped Access**: Repository methods enforce data isolation
 - **Prepared for Authentication**: Structure ready for JWT implementation
 
-## ?? License
+## 📄 License
 
 This project is dual-licensed:
 
 - **Main Project**: [Creative Commons Attribution 4.0 International License](LICENSE) - Free for educational and commercial use with attribution
 - **Development Documentation**: [Proprietary License](docs/dev/LICENSE) - Restricted use for development materials
 
-## ?? Contributing
+## 🤝 Contributing
 
 This project is designed as an educational foundation. Students are encouraged to:
 
@@ -559,7 +558,7 @@ This project is designed as an educational foundation. Students are encouraged t
 3. **Share your projects** with the community to inspire others
 4. **Maintain the architectural principles** while exploring new directions
 
-## ?? Learning Objectives
+## 🎓 Learning Objectives
 
 By working with this codebase, students will gain practical experience with:
 
@@ -569,7 +568,7 @@ By working with this codebase, students will gain practical experience with:
 - **API Development**: RESTful design, documentation, testing
 - **Software Engineering Practices**: Testing, documentation, code quality
 
-## ?? Support and Resources
+## 📞 Support and Resources
 
 - **Architecture Details**: See [PHASE1_SUMMARY.md](docs/PHASE1_SUMMARY.md)
 - **Extension Guidelines**: See [PHASE2_PLAN.md](docs/PHASE2_PLAN.md)
@@ -580,4 +579,4 @@ By working with this codebase, students will gain practical experience with:
 
 **Ready to build something amazing?** This foundation provides enterprise-grade architecture while leaving infinite possibilities for creative extension. Whether you're interested in AI, real-time features, mobile development, or completely novel game mechanics, this codebase gives you a solid starting point.
 
-**What will you create?** ??
+**What will you create?** 🚀
