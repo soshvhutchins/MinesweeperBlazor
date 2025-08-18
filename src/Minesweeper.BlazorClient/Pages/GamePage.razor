@@ -1,0 +1,79 @@
+@using Minesweeper.BlazorClient.Components
+@page "/minesweeper"
+@using Minesweeper.BlazorClient.Components
+@using Minesweeper.BlazorClient.Models
+@inject Minesweeper.BlazorClient.Services.IMinesweeperService MinesweeperService
+
+<h3>Minesweeper</h3>
+<div class="game-container">
+    <DifficultySelector Difficulties="Difficulties" SelectedDifficulty="SelectedDifficulty" OnDifficultyChange="OnDifficultyChange" />
+    <button @onclick="StartNewGame">New Game</button>
+    <MineCounter MineCount="CurrentMineCount" />
+    <Timer ElapsedSeconds="ElapsedSeconds" />
+    @if (GameState?.Cells != null)
+    {
+        <MinesweeperGrid Rows="GameState.Rows" Columns="GameState.Columns" Cells="GameState.Cells" OnCellReveal="OnCellReveal" OnCellFlag="OnCellFlag" />
+    }
+    <div class="game-status">Status: @GameState?.Status</div>
+</div>
+
+@code {
+    private List<DifficultyModel> Difficulties = new();
+    private string SelectedDifficulty = "Beginner";
+    private GameModel? GameState;
+    private int ElapsedSeconds = 0;
+    private System.Timers.Timer? timer;
+    private int CurrentMineCount => GameState?.MineCount ?? 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Difficulties = await MinesweeperService.GetDifficultiesAsync();
+        await StartNewGame();
+    }
+
+    private async Task StartNewGame()
+    {
+        GameState = await MinesweeperService.StartNewGameAsync(SelectedDifficulty);
+        ElapsedSeconds = 0;
+        StartTimer();
+        StateHasChanged();
+    }
+
+    private void StartTimer()
+    {
+        timer?.Stop();
+        timer = new System.Timers.Timer(1000);
+        timer.Elapsed += (s, e) => {
+            if (GameState?.Status == "InProgress")
+            {
+                ElapsedSeconds++;
+                InvokeAsync(StateHasChanged);
+            }
+            else
+            {
+                timer?.Stop();
+            }
+        };
+        timer.Start();
+    }
+
+    private async Task OnCellReveal((int row, int col) pos)
+    {
+        if (GameState == null) return;
+        GameState = await MinesweeperService.RevealCellAsync(GameState.Id, pos.row, pos.col);
+        StateHasChanged();
+    }
+
+    private async Task OnCellFlag((int row, int col) pos)
+    {
+        if (GameState == null) return;
+        GameState = await MinesweeperService.FlagCellAsync(GameState.Id, pos.row, pos.col);
+        StateHasChanged();
+    }
+
+    private async Task OnDifficultyChange(string difficulty)
+    {
+        SelectedDifficulty = difficulty;
+        await StartNewGame();
+    }
+}
