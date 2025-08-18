@@ -1,4 +1,3 @@
-# Minesweeper Blazor
 # Minesweeper Game - Enterprise .NET Architecture Template
 
 A complete **Minesweeper game implementation** using .NET 9+ that demonstrates
@@ -363,9 +362,7 @@ flowchart TB
         direction LR
         Controllers[Controllers]
         SignalR[SignalR Hubs]
-
         WebApi["🌐 Minesweeper.WebApi"]
-
     end
 
     subgraph "Application Layer"
@@ -373,16 +370,13 @@ flowchart TB
         Commands[Commands]
         Queries[Queries]
         DTOs[DTOs]
-
         AppLayer["🎯 Minesweeper.Application"]
-
     end
 
     subgraph "Infrastructure Layer"
         direction LR
         EFCore[EF Core]
         Repositories[Repositories]
-
         InfraLayer["🔧 Minesweeper.Infrastructure"]
     end
 
@@ -390,7 +384,6 @@ flowchart TB
         direction LR
         Entities[Entities]
         ValueObjects[Value Objects]
-
         DomainLayer["🏗️ Minesweeper.Domain"]
     end
 
@@ -427,13 +420,11 @@ flowchart TB
 - **Value Objects**: Strongly-typed domain values
 - **Result Pattern**: Railway-oriented programming for error handling
 
-
 ## 🚀 Student Project Ideas
 
 This foundation supports countless creative directions. Here are some ideas to get you started:
 
 ### 🎯 Beginner Extensions
-
 
 - **Frontend Development**: Build web, mobile, or desktop interfaces
 - **Custom Themes**: UI themes and visual customizations (requires frontend)
@@ -443,7 +434,6 @@ This foundation supports countless creative directions. Here are some ideas to g
 
 ### 🎯 Intermediate Projects
 
-
 - **Web Frontend**: React, Angular, Vue.js, or Blazor client applications
 - **Mobile Apps**: Xamarin, MAUI, React Native, or Flutter applications
 - **Real-time Multiplayer**: Competitive or collaborative gameplay
@@ -451,9 +441,7 @@ This foundation supports countless creative directions. Here are some ideas to g
 - **Mobile API**: Dedicated endpoints for mobile applications
 - **Social Features**: Friend systems, leaderboards, achievements
 
-
 ### 🎯 Advanced Challenges
-
 
 - **Machine Learning**: Pattern recognition for cheating detection
 - **Microservices**: Break apart into distributed services
@@ -521,13 +509,11 @@ public void YourNewFeature_WithValidInput_ShouldBehaveCorrectly()
 }
 ```
 
-
 ## 🔧 Development Workflow
 
 ### VS Code Tasks
 
 The project includes predefined VS Code tasks (accessible via `Ctrl+Shift+P` → "Tasks: Run Task"):
-
 
 - **build**: Build the entire solution
 - **test**: Run all unit tests
@@ -540,9 +526,7 @@ The project includes predefined VS Code tasks (accessible via `Ctrl+Shift+P` →
 - **Development**: Uses SQLite database (`minesweeper_dev.db`)
 - **Production**: Configured for PostgreSQL (connection string in `appsettings.Production.json`)
 
-
 ## 📈 Performance Considerations
->>>>>>> main
 
 The current implementation includes several performance optimizations:
 
@@ -551,9 +535,7 @@ The current implementation includes several performance optimizations:
 - **Connection Pooling**: Built-in EF Core connection management
 - **Caching**: Ready for implementation with dependency injection
 
-
 ## 🔒 Security Features
-
 
 - **Input Validation**: Domain-level validation for all operations
 - **SQL Injection Prevention**: EF Core parameterized queries
@@ -561,7 +543,6 @@ The current implementation includes several performance optimizations:
 - **Prepared for Authentication**: Structure ready for JWT implementation
 
 ## 📄 License
-
 
 This project is dual-licensed:
 
@@ -578,7 +559,6 @@ This project is designed as an educational foundation. Students are encouraged t
 4. **Maintain the architectural principles** while exploring new directions
 
 ## 🎓 Learning Objectives
-
 
 By working with this codebase, students will gain practical experience with:
 
@@ -600,5 +580,3 @@ By working with this codebase, students will gain practical experience with:
 **Ready to build something amazing?** This foundation provides enterprise-grade architecture while leaving infinite possibilities for creative extension. Whether you're interested in AI, real-time features, mobile development, or completely novel game mechanics, this codebase gives you a solid starting point.
 
 **What will you create?** 🚀
-
-# MinesweeperBlazor
