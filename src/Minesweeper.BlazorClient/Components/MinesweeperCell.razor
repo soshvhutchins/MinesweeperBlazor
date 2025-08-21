@@ -1,0 +1,24 @@
+@using Minesweeper.BlazorClient.Models
+<div class="cell @(Cell.IsRevealed ? "revealed" : "hidden") @(Cell.IsFlagged ? "flagged" : "")" @onclick="OnReveal" @oncontextmenu="OnFlag">
+    @if (Cell.IsRevealed)
+    {
+        @if (Cell.HasMine)
+        {
+            <span class="mine">💣</span>
+        }
+        else if (Cell.AdjacentMineCount > 0)
+        {
+            <span class="adjacent">@Cell.AdjacentMineCount</span>
+        }
+    }
+    else if (Cell.IsFlagged)
+    {
+        <span class="flag">🚩</span>
+    }
+</div>
+
+@code {
+    [Parameter] public CellModel Cell { get; set; } = default!;
+    [Parameter] public EventCallback OnReveal { get; set; }
+    [Parameter] public EventCallback OnFlag { get; set; }
+}

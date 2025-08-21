@@ -1,0 +1,24 @@
+@using Minesweeper.BlazorClient.Models
+@using Minesweeper.BlazorClient.Services
+@inject IMinesweeperService MinesweeperService
+
+<div class="minesweeper-grid" style="display: grid; grid-template-rows: repeat(@Rows, 1fr); grid-template-columns: repeat(@Columns, 1fr);">
+    @for (int r = 0; r < Rows; r++)
+    {
+        for (int c = 0; c < Columns; c++)
+        {
+            <MinesweeperCell Cell="Cells[r, c]" OnReveal="() => RevealCell(r, c)" OnFlag="() => FlagCell(r, c)" />
+        }
+    }
+</div>
+
+@code {
+    [Parameter] public int Rows { get; set; }
+    [Parameter] public int Columns { get; set; }
+    [Parameter] public CellModel[,] Cells { get; set; } = default!;
+    [Parameter] public EventCallback<(int, int)> OnCellReveal { get; set; }
+    [Parameter] public EventCallback<(int, int)> OnCellFlag { get; set; }
+
+    private void RevealCell(int row, int col) => OnCellReveal.InvokeAsync((row, col));
+    private void FlagCell(int row, int col) => OnCellFlag.InvokeAsync((row, col));
+}

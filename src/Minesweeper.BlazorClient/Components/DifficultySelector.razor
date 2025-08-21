@@ -1,0 +1,24 @@
+@using Minesweeper.BlazorClient.Models
+
+<div class="difficulty-selector">
+    <label for="difficulty">Difficulty:</label>
+    <select id="difficulty" @onchange="OnDifficultyChanged">
+        @foreach (var diff in Difficulties)
+        {
+            <option value="@diff.Name">@diff.Name (@diff.Rows)x(@diff.Columns), Mines: @diff.MineCount</option>
+        }
+    }
+</select>
+</div>
+
+@code {
+    [Parameter] public List<DifficultyModel> Difficulties { get; set; } = new();
+    [Parameter] public string SelectedDifficulty { get; set; } = "Beginner";
+    [Parameter] public EventCallback<string> OnDifficultyChange { get; set; }
+
+    private void OnDifficultyChanged(ChangeEventArgs e)
+    {
+        var value = e.Value?.ToString() ?? "Beginner";
+        OnDifficultyChange.InvokeAsync(value);
+    }
+}
